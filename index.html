@@ -1,1 +1,137 @@
-<h1>Github Pages Index</h1>
+	
+	<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~°
+	|	UNIVERSIDAD LIBRE SECCIONAL CALI			 |~~~~~~~~~~~~°
+	|	INGENIERÍA DE SISTEMAS						 |~~~~~~~°
+	|	PROGRAMACIÓN WEB							 |~~~~~~~~~~~~~~~~~~~~~°
+	|	PARCIAL CORTE #1							 |~~~~~~~~~~~~~~°
+	|	ESTUDIANTE: Javier Camilo Lenis Grisales	 |~~~~~~~~~°
+	|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+<!DOCTYPE html>
+<html lang="es">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~ HEAD DE LA PÁGINA ~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de una ecuación</title>
+	
+	
+	<!-- CSS ~ ESTILO DE LA PÁGINA -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 5px;
+            width: 200px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .error {
+            color: red;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+        }
+        .input-container {
+            flex: 1;
+        }
+        .chart-container {
+            flex: 1;
+            margin-left: 88px;
+			margin-top: 200px;
+        }
+        .results-container {
+            display: flex;
+            flex-direction: row;
+            margin-top: 10px;
+        }
+        .tables-container {
+            display: flex;
+            flex-direction: row;
+        }
+        .tables-container table {
+            height: 300px; /* Ajustar la altura de todas las tablas */
+        }
+    </style>
+</head>
+
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src = "ProgWeb_JS_Corte1_JavierLenis.js"></script>
+
+
+<!-- BODY ~ LO QUE SE MUESTRA EN LA PÁGINA -->
+<body>
+	<h1 align="center">CÁLCULAR LA ECUACIÓN</h1> <!-- TÍTULO CENTRADO -->
+	
+	<!-- DIV QUE CONTIENE LA IMÁGEN CENTRADA DE LA FÓRMULA -->
+	<div style="display: flex; justify-content: center; align-items: center; height: 16vh;">
+	<img src="formula_img.png" alt="Fórmula de la ecuación 'Y'">
+	</div>
+	
+    <div class="container">
+        <div class="input-container">
+		
+			<!-- CÁLCULOS -->
+			<h2>Ingresar valores a calcular:</h2>
+            <label for="a">Valor A:</label>
+            <input type="number" id="a" name="a"><br><br>
+            <label for="b">Valor B:</label>
+            <input type="number" id="b" name="b"><br><br>
+            <label for="c">Valor C:</label>
+            <input type="number" id="c" name="c"><br><br>
+            <label for="d">Valor D:</label>
+            <input type="number" id="d" name="d"><br><br>
+            <label for="e">Valor E:</label>
+            <input type="number" id="e" name="e"><br><br>
+			
+			<!-- VALORES DE "X" -->
+			<h2>Valores de X:</h2>
+            <label for="xMin">Valor mínimo de X:</label>
+            <input type="number" id="xMin" name="xMin"><br><br>
+            <label for="xMax">Valor máximo de X:</label>
+            <input type="number" id="xMax" name="xMax"><br><br>
+            <button onclick="process()">Procesar</button>
+
+			<!-- RESULTADOS -->
+			<p>
+			<h2>Resultados:</h2>
+            <p id="minY"></p>
+            <p id="maxY"></p>
+            <p id="minX"></p>
+            <p id="maxX"></p>
+            <p id="zeroCrossings"></p>
+            <div class="error" id="error"></div>
+			
+        </div>
+		
+        <div class="chart-container">
+            <div id="curve_chart" style="width: 600px; height: 400px;"></div>
+        </div>
+		
+    </div>
+	
+    <div class="results-container">
+        <div class="tables-container">
+            <table id="xTable"></table>
+            <table id="yTable"></table>
+            <table id="zeroCrossingsTable"></table>
+        </div>
+    </div>	
+</body>
+
+</html>
